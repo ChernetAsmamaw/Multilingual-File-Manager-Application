@@ -4,8 +4,8 @@
 import sha1 from 'sha1';
 import { Request } from 'express';
 import mongoDBCore from 'mongodb/lib/core';
-import dbClient from './db';
-import redisClient from './redis';
+import dbClient from './db.js';
+import redisClient from './redis.js';
 
 // Retrieve the user from Authoization header in the request object
 export const getUserFromAuthorization = async (req) => {
@@ -33,7 +33,7 @@ export const getUserFromAuthorization = async (req) => {
 };
 
 // Retrieve the user from the X-Token header in the request object
-export const getUserFromToken = async (req) => {
+export const getUserFromXToken = async (req) => {
   const token = req.header['X-Token'] || null;
 
   if (!token) return null;
@@ -51,5 +51,5 @@ export const getUserFromToken = async (req) => {
 
 export default {
   getUserFromAuthorization: async (req) => getUserFromAuthorization(req),
-  getUserFromToken: async (req) => getUserFromToken(req),
+  getUserFromXToken: async (req) => getUserFromToken(req),
 };
