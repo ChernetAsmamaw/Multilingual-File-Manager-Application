@@ -1,7 +1,7 @@
 import express from 'express';
-import boot from './libs/boot.js';
-import routes from './routes/index.js';
-import injectMiddlewares from './libs/middlewares.js';
+import startServer from './libs/boot';
+import injectRoutes from './routes';
+import injectMiddlewares from './libs/middlewares';
 
 const server = express();
 

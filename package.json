@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "This project will allow you to showcase your backend development skills learned throughout the course. It integrates essential concepts like databases, i18n, queuing systems, and unit testing in a practical application.",
   "main": "server.js",
-  "type": "module",
   "keywords": [],
   "author": "Chernet and Bevil",
   "license": "ISC",
@@ -17,7 +16,8 @@
     "dev": "nodemon --exec babel-node --presets @babel/preset-env",
     "test": "./node_modules/.bin/mocha --opts mocha.opts tests/**/*.js",
     "test-with-coverage": "nyc --reporter=text ./node_modules/.bin/mocha --opts mocha.opts tests/**/*.js",
-    "coveralls": "nyc ./node_modules/.bin/mocha --opts mocha.opts tests/**/*.js && nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc ./node_modules/.bin/mocha --opts mocha.opts tests/**/*.js && nyc report --reporter=text-lcov | coveralls",
+    "type": "module"
   },
   "dependencies": {
     "bull": "^3.16.0",
