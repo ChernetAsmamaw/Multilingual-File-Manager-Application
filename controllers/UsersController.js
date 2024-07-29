@@ -44,4 +44,34 @@ export default class UsersController {
 
     res.status(200).json({ email: user.email, id: user._id.toString() });
   }
+
+  // Method to delete a user with the given id
+  static async deleteMe(req, res) {
+    const { user } = req;
+
+    await (await dbClient.usersCollection()).deleteOne({ _id: user._id });
+
+    res.status(204).end();
+  }
+
+  // Method to list all the users
+  static async getIndex(req, res) {
+    const users = await (await dbClient.usersCollection()).find().toArray();
+
+    res.status(200).json(users);
+  }
+
+  // Method to show a user with the given id
+  static async getShow(req, res) {
+    const { id } = req.params;
+    const user = await (await dbClient.usersCollection()).findOne({ _id: dbClient.ObjectId(id) });
+
+    if (!user) {
+      res.status(404).json({ error: 'Not found' });
+      return;
+    }
+
+    res.status(200).json({ email: user.email, id: user._id.toString() });
+  }
+
 }

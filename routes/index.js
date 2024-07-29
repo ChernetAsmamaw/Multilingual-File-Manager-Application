@@ -15,13 +15,23 @@ import { APIError, errorResponse } from '../middlewares/error.js';
 
 // Inject the routes with their handlers to the given express app
 const injectRoutes = (api) => {
+
+  // Wellcome route
+  api.get('/', (req, res) => {
+    res.json({ message: 'Wellcome to the Multilingual File Manager' });
+  });
+
   // routes for checking the status and stats of the API
   api.get('/status', AppController.getStatus);
   api.get('/stats', AppController.getStats);
 
-  // routqes for adding and retrieving user data
+  // routqes for adding and retrieving user data, and deleting a given user
   api.post('/users', UsersController.postNew);
   api.get('/users/me', xTokenAuthenticate, UsersController.getMe);
+  api.delete('/users/me', xTokenAuthenticate, UsersController.deleteMe);
+  api.get('/users', xTokenAuthenticate, UsersController.getIndex);
+  api.get('/users/:id', xTokenAuthenticate, UsersController.getShow);
+
 
   // routes for user authentication
   api.get('/connect', basicAuthenticate, AuthController.getConnect);

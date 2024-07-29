@@ -6,8 +6,7 @@ This project is a file manager system it integrates essential concepts like data
 
 ### Features
 - Check API Status: Endpoint to check the status and statistics of the API.
-- User Management: Add users and retrieve user data.
-- Authentication: Connect and disconnect users.
+- User Management: Add users, retrieve user information, delete users, and connect and disconnect users.
 - File Management: Upload, retrieve, manage visibility, and delete files.
 #### Technical Choices
 - Node.js: JavaScript runtime environment used for building the server.
@@ -87,9 +86,12 @@ multilingual-file-manager
 
 * User Management
     - Create New User: POST /users
+    - List All Users: GET /users --> Lists all users.
     - Get Current User: GET /users/me --> Connect: Requires xToken authentication.
     - Connect User: GET /connect --> Connects the user, requiring basic authentication.
     - Disconnect User: GET /disconnect --> Disconnects the user, requiring xToken authentication.
+    - Get User Information: GET /users/:id --> Retrieves user information.
+    - Delete User: DELETE /users/:id --> Deletes a user from the database.
 * File Management
 Requires xToken authentication.
   - Upload New File: POST /files --> Uploads a new file.
