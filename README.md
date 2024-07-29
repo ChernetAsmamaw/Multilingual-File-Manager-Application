@@ -13,11 +13,17 @@ This project is a file manager system it integrates essential concepts like data
 - Node.js: JavaScript runtime environment used for building the server.
 - Express.js: Web framework for handling HTTP requests and routing.
 - MongoDB: NoSQL database for storing file metadata and user information.
+- Redis: In-memory data structure store for caching user sessions.
+- Docker: Containerization platform for running the application and dependencies.
+- Chai: Assertion library for writing unit tests.
 - Middleware: For authentication and error handling.
+
 ### Project Setup
 Prerequisites
 - Node.js: Ensure Node.js is installed on your system.
 - MongoDB: Ensure MongoDB is installed and running.
+- Redis: Ensure Redis is installed and running.
+
 #### Installation
 1. Clone the Repository
 `git clone <repository-url>`
