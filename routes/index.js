@@ -34,6 +34,7 @@ const injectRoutes = (api) => {
   api.put('/files/:id/publish', xTokenAuthenticate, FilesController.putPublish);
   api.put('/files/:id/unpublish', xTokenAuthenticate, FilesController.putUnpublish);
   api.get('/files/:id/data', FilesController.getFile);
+  api.delete('/files/:id', xTokenAuthenticate, FilesController.deleteFile);
 
 
   // api.all is used to catch all the other routes that are not defined

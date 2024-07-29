@@ -1,15 +1,11 @@
-/* eslint-disable-next-line no-unused-vars */
-
-// Import the mongodb module
 import mongodb from 'mongodb';
 // eslint-disable-next-line no-unused-vars
 import Collection from 'mongodb/lib/collection';
-import envLoader from './env_loader.js';
+import envLoader from './env_loader';
 
-
-// Class representing a mongodb client
-class DBClinet {
-  // create a new instance of DBClinet
+// Represents a MongoDB client.
+class DBClient {
+  /// Creates a new DBClient instance.
   constructor() {
     envLoader();
     const host = process.env.DB_HOST || 'localhost';
@@ -20,23 +16,32 @@ class DBClinet {
     this.client = new mongodb.MongoClient(dbURL, { useUnifiedTopology: true });
     this.client.connect();
   }
-  
-  // Check if the client is connected to the database
+
+  // Checks if this client's connection to the MongoDB server is active.
   isAlive() {
     return this.client.isConnected();
   }
 
-  // Retrieve the number (promise) of users in a collection
+  // Retrieves the number of users in the database.
   async nbUsers() {
     return this.client.db().collection('users').countDocuments();
   }
 
-  // Retrieve the number (promise) of files in a collection
+  // Retrieves the number of files in the database.
   async nbFiles() {
     return this.client.db().collection('files').countDocuments();
   }
+
+  // Retrieves a reference to the `users` collection.
+  async usersCollection() {
+    return this.client.db().collection('users');
+  }
+
+  // Retrieves a reference to the `files` collection.
+  async filesCollection() {
+    return this.client.db().collection('files');
+  }
 }
 
-// Export the DBClinet class
-export const dbClient = new DBClinet();
+export const dbClient = new DBClient();
 export default dbClient;

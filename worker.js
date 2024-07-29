@@ -26,15 +26,15 @@ const generateThumbnail = async (filePath, size) => {
 //
 fileQueue.process(async (job, done) => {
   const fileId = job.data.fileId || null;
-  const userID = job.data.userID || null;
+  const userId = job.data.userId || null;
 
   if (!fileId) return done(new Error('Missing fileId'));
-  if (!userID) return done(new Error('Missing userID'));
+  if (!userId) return done(new Error('Missing userId'));
 
   console.log('Processing', job.data.name || '');
   const file = await (await dbClient.filesCollection()).findOne({
     _id: new mongoDBCore.BSON.ObjectId(fileId),
-    userID: new mongoDBCore.BSON.ObjectId(userID),
+    userId: new mongoDBCore.BSON.ObjectId(userId),
   });
 
   if (!file) return done(new Error('File not found'));
