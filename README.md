@@ -2,7 +2,7 @@
 
 
 ### Overview
-This project is a file manager system it integrates essential concepts like databases, i18n, queuing systems, and unit testing in a practical application. It provides functionality for file management operations such as unpublishing, retrieving, and deleting files, as well as user authentication and status checks.
+This project is a file manager system that allows users to upload, retrieve, and manage files. It is built using Node.js and Express.js, and it uses MongoDB for storing file metadata and user information. The application is multilingual and supports English, French, Spanish, and Amharic languages. It also uses Redis for caching user sessions and Docker for containerization. The project is a good example of an express.js bacquend application as it integrates essential concepts like databases, i18n, queuing systems, and unit testing in a practical application.
 
 ### Features
 - Check API Status: Endpoint to check the status and statistics of the API.
@@ -15,7 +15,7 @@ This project is a file manager system it integrates essential concepts like data
 - Redis: In-memory data structure store for caching user sessions.
 - Docker: Containerization platform for running the application and dependencies.
 - Chai: Assertion library for writing unit tests.
-- Middleware: For authentication and error handling.
+- i18n: Internationalization library for handling multiple languages.
 
 ### Project Setup
 Prerequisites
@@ -50,16 +50,23 @@ multilingual-file-manager
 ├── middlewares
 │   ├── auth.js
 │   ├── error.js
+├── |── i18n.js
 ├── utils
 │   ├── auth.js
 │   ├── db.js
 │   ├── env_loader.js
 │   ├── redis.js
+├── |── translationLoader.js
 ├── routes
 │   ├── index.js
 ├── libs
 │   ├── boot.js
 │   ├── middleware.js
+├── locales
+│   ├── en.json
+│   ├── fr.json
+├── |── es.json
+├── |── am.json
 ├── tests
 │   ├── controllers
 │   |             ├── AuthController.test.js
@@ -103,8 +110,9 @@ Requires xToken authentication.
   - Delete a File: DELETE /files/:id --> Deletes a file from the database and file system.
 
 ### Middleware
-- Authentication: Middleware for authenticating users using xToken and basic authentication.
+- Authentication: Middleware for authenticating users using xToken, basicauthentication, and language headers.
 - Error Handling: Middleware for handling errors and exceptions.
+- i18n: Middleware for handling internationalization and localization (Accept-Language header for ['en', 'fr', 'es', 'am']).
 
 ### Database
 - MongoDB: NoSQL database for storing file metadata and user information.

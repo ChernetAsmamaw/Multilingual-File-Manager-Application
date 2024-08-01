@@ -3774,10 +3774,10 @@
   dependencies:
     "cookies" "0.7.1"
 
-"i18next-fs-backend@^2.3.1":
-  "integrity" "sha512-tvfXskmG/9o+TJ5Fxu54sSO5OkY6d+uMn+K6JiUGLJrwxAVfer+8V3nU8jq3ts9Pe5lXJv4b1N7foIjJ8Iy2Gg=="
-  "resolved" "https://registry.npmjs.org/i18next-fs-backend/-/i18next-fs-backend-2.3.1.tgz"
-  "version" "2.3.1"
+"i18next-fs-backend@^2.3.2":
+  "integrity" "sha512-LIwUlkqDZnUI8lnUxBnEj8K/FrHQTT/Sc+1rvDm9E8YvvY5YxzoEAASNx+W5M9DfD5s77lI5vSAFWeTp26B/3Q=="
+  "resolved" "https://registry.npmjs.org/i18next-fs-backend/-/i18next-fs-backend-2.3.2.tgz"
+  "version" "2.3.2"
 
 "i18next-http-middleware@^3.6.0":
   "integrity" "sha512-pLyTOC8Dzj83byN0s4hd/i/Ewg6T36YjMrc+Zfnqz2Ca0G5ab9IPvPR8xZqr6TS0s/ZtPs2MZucDkWgqoRmNXA=="

@@ -11,14 +11,22 @@ import FilesController from '../controllers/FilesController.js';
 // Import the middlewares
 import { basicAuthenticate, xTokenAuthenticate } from '../middlewares/auth.js';
 import { APIError, errorResponse } from '../middlewares/error.js';
+import i18nMiddleware from '../middlewares/i18n.js';
+
+
 
 
 // Inject the routes with their handlers to the given express app
 const injectRoutes = (api) => {
 
-  // Wellcome route
+  // Apply the translation middleware to the API
+  api.use(i18nMiddleware);
+
+  // Home route: with translatable welcome message    
   api.get('/', (req, res) => {
-    res.json({ message: 'Wellcome to the Multilingual File Manager' });
+    res.json({
+      message: req.t('welcome')
+    });
   });
 
   // routes for checking the status and stats of the API
